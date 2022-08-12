@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Router } from "react-router-dom";
+import Header from "./components/header/Header";
+import SideBar from "./components/sideBar/SideBar";
+import WorkAreaHeader from "./components/createReport/workArea/WorkAreaHeader";
+import ReportOpen from "./components/reportOpen/ReportOpen";
+import MyReport from "./components/reportCreate/ReportCreate";
+import TemplateCreation from "./components/templateCreate/templateCreate";
+import Middle from "./components/middleSection/routes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="d-flex justify-content-start">
+        <SideBar />
+        <Middle />
+        {/* <TemplateCreation /> */}
+        {/* <MyReport /> */}
+        {/* <ReportOpen /> */}
+        {/* <ChapterSideBar /> */}
+        {/* <WorkAreaHeader /> */}
+      </div>
+    </>
   );
 }
 
