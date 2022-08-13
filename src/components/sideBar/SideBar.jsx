@@ -18,7 +18,7 @@ const SideBar = () => {
 
   const [position, setPosition] = useState("static");
 
-  const [List, setList] = useState([
+  const [list, setList] = useState([
     {
       name: "My Reports",
       icon: <IoCreateOutline />,
@@ -88,7 +88,7 @@ const SideBar = () => {
         <div className="sidebarBody">
           <ul className="side-li">
             {/* <Router> */}
-            {List.map((item, index) => (
+            {list.map((item, index) => {return(
               <li key={index}>
                 <Link to={item.path}>
                   {close ? (
@@ -112,7 +112,7 @@ const SideBar = () => {
                   )}
                 </Link>
               </li>
-            ))}
+            )})}
             {/* </Router> */}
           </ul>
         </div>

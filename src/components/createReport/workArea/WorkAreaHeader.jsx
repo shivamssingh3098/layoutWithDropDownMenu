@@ -4,7 +4,9 @@ import "./workArea.css";
 const WorkAreaHeader = () => {
   return (
     <>
-      <div className="header-side-bar">
+    <section className="m-2">
+
+      <div className="header-side-bars">
         <div className="row d-flex justify-content-around text-center">
           <div className="col-md-3 mt-4 ">
             <p className="" style={{ fontWeight: "bold" }}>
@@ -36,6 +38,7 @@ const WorkAreaHeader = () => {
           </div>
         </div>
       </div>
+    </section>
     </>
   );
 };

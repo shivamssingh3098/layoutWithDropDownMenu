@@ -5,12 +5,19 @@ import { Routes, Route, Navigate, useParams } from "react-router-dom";
 
 // Import Components to Show in Middle Section
 
-const ViewReport = React.lazy(() => import("../reportOpen/ReportOpen"));
-const CreateReport = React.lazy(() => import("../reportCreate/ReportCreate"));
-const TemplateCreation = React.lazy(() =>
-  import("../templateCreate/templateCreate")
-);
-const CreateChapter = React.lazy(() => import("../createReport/createChapter"));
+// const ViewReport = React.lazy(() => import("../reportOpen/ReportOpen"));
+// const CreateReport = React.lazy(() => import("../reportCreate/ReportCreate"));
+// const TemplateCreation = React.lazy(() =>
+//   import("../templateCreate/templateCreate")
+// );
+// const CreateChapter = React.lazy(() => import("../createReport/createChapter"));
+
+import ViewReport from "../reportOpen/ReportOpen";
+import CreateReport from "../reportCreate/ReportCreate";
+
+import TemplateCreation from "../templateCreate/templateCreate";
+
+import CreateChapter from "../createReport/createChapter";
 
 const Middle = () => {
   const params = useParams();
@@ -18,10 +25,11 @@ const Middle = () => {
     // <React.Suspense fallback={<Loder />}>
     <Routes>
       <Route path="/" element={<Navigate replace to="/viewReport" />} />
-      <Route path="/viewReport" element={<ViewReport />}></Route>
-      <Route path="/createReport" element={<CreateReport />}></Route>
-      <Route path="/templateCreation" element={<TemplateCreation />}></Route>
-      <Route path="/createChapter/:id" element={<CreateChapter />}></Route>
+      <Route path="/viewReport" element={<ViewReport />} />
+      <Route path="/createReport" element={<CreateReport />} />
+      <Route path="/templateCreation" element={<TemplateCreation />} />
+   
+      <Route path="/createChapter" element={ <CreateChapter />} />
     </Routes>
     // </React.Suspense>
   );

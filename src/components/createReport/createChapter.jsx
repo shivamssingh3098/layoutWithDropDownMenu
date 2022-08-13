@@ -74,10 +74,12 @@ function CreateChapter() {
      }, [])
   return (
     <>
-        <div className="row">
-            <WorkAreaHeader />
-        </div>
+        <div className="row d-flex flex-column">
+            <WorkAreaHeader/>
+        
         <div className="main">
+
+
         { chapterList ?
         <Sidebar items={chapterList} handleModal={handleModal} tabClick={selectId} deleteSub={handleDelete}/>
         :  ""
@@ -88,6 +90,7 @@ function CreateChapter() {
         </div>
       </div>
       <DataModal handelModal={handleModal} show={modelOpen} onChange={onInputChange} submit={modelSubmit}/>
+    </div>
     </div>
     </>
   );
