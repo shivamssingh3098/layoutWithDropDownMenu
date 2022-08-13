@@ -1,12 +1,22 @@
 import SidebarItem from "./SidebarItem";
-// import items from "../data/sidebar.json";
 
-export default function Sidebar({ items }) {
+export default function Sidebar({ items, handleModal, tabClick, deleteSub }) {
   return (
     <div className="sidebar">
-      {items.map((item, index) => (
-        <SidebarItem key={index} item={item} />
-      ))}
+      <div styles={{ width: "100%" }}>
+        <span onClick={handleModal}>Add Chapter</span>
+      </div>
+      {items
+        ? items.map((item, index) => (
+            <SidebarItem
+              key={index}
+              item={item}
+              handleModal={handleModal}
+              tabClick={tabClick}
+              deleteSub={deleteSub}
+            />
+          ))
+        : ""}
     </div>
   );
 }

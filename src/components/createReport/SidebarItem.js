@@ -6,38 +6,29 @@ import {
   IoPencil,
 } from "react-icons/io5";
 import { MdOutlineDeleteOutline } from "react-icons/md";
+// import Modal from "../popupModal/modal";
 
-export default function SidebarItem({ item }) {
+export default function SidebarItem({ item, handleModal, tabClick, deleteSub }) {
   const [open, setOpen] = useState(false);
 
   if (item.subTopics) {
     return (
       <div className={open ? "sidebar-item open" : "sidebar-item"}>
         <div className="sidebar-title">
-          <span>
+          <span  onClick={()=> {tabClick(item)}}>
             {/* {item.icon && <i className={item.icon}></i>} */}
             {item.subTopicsName}
           </span>
           <div style={{ float: "right" }}>
-          <span onClick={() => console.log(item._id)}>
-            <IoEllipsisVerticalCircle />
-            <ul    class="dropdown-menu list-action-li"
-                    aria-labelledby="dropdownMenuLink"
-                  >
-                    <li>
-                      <IoAddCircleOutline />
-                        Add
-                    </li>
-                    <li>
-                    <MdOutlineDeleteOutline />
-                        Update
-                    </li>
-                    <li>
-                    <IoPencil />
-                        Delete
-                    </li>
-                  </ul>
+          <span onClick={() => {handleModal(item)}}>
+          <IoAddCircleOutline />
           </span>
+          <span onClick={() => {deleteSub(item._id )}}>
+          <MdOutlineDeleteOutline />
+          </span>
+          {/* <span onClick={() => console.log(item._id)}>
+            <IoEllipsisVerticalCircle />
+          </span> */}
 
           <span
             className="bi-chevron-down toggle-btn"
@@ -49,18 +40,25 @@ export default function SidebarItem({ item }) {
           </div>
         </div>
         <div className="sidebar-content">
-          {item.subTopics.map((child, index) => (
-            <SidebarItem key={index} item={child} />
+          {item.subTopics.map((subTopics, index) => (
+            <SidebarItem key={index} item={subTopics} handleModal={handleModal} tabClick={tabClick} deleteSub={deleteSub} />
           ))}
         </div>
       </div>
     );
   } else {
     return (
-      <a href={item.path || "#"} className="sidebar-item plain">
-        {/* {item.icon && <i className={item.icon}></i>} */}
+      <span href={item.path || "#"} className="sidebar-item plain">
         {item.subTopicsName}
-      </a>
+        <div style={{ float: "right" }}>
+          <span onClick={() => {handleModal(item)}}>
+          <IoAddCircleOutline />
+          </span>
+          <span onClick={() => {deleteSub(item._id )}}>
+          <MdOutlineDeleteOutline />
+          </span>
+          </div>
+      </span>
     );
   }
 }

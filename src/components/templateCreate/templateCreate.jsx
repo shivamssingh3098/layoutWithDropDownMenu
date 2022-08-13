@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./myReport.css";
@@ -17,10 +17,7 @@ const TemplateCreation = () => {
   };
 
   const createReport = async () => {
-    const result = await axios.post(
-      "http://localhost:8080/api/v1/template/",
-      tempData
-    );
+    await axios.post("http://localhost:8080/api/v1/template/", tempData);
     navigation(`/viewReport/`);
   };
   return (
